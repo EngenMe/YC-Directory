@@ -1,16 +1,11 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
+import StartupListCards from './StartupListCards';
+import StartupListTitle from './StartupListTitle';
 
 const StartupList = () => {
-    const searchParams = useSearchParams();
-    const query = searchParams?.get('query') || '';
-
     return (
         <section className="pt-20 px-10">
-            <div className="text-3xl font-semibold">
-                {query.trim().length === 0 ? 'All Startups' : `Searching For "${query}"`}
-            </div>
+            <StartupListTitle />
+            <StartupListCards />
         </section>
     );
 };

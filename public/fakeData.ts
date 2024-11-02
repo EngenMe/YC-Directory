@@ -1,0 +1,96 @@
+import image from '@/app/favicon.ico';
+
+const fakeDataArray = [
+    {
+        _id: 1,
+        _createdAt: new Date(),
+        vues: 25,
+        author: {
+            _id: 1,
+            username: 'johnDoe',
+            avatar: image,
+        },
+        title: 'Innovative AI Solutions',
+        description: 'Exploring the latest advancements in artificial intelligence and machine learning.',
+        picture: image,
+        altPicture: 'AI concept image',
+        category: 'Technology',
+    },
+    {
+        _id: 2,
+        _createdAt: new Date(),
+        vues: 47,
+        author: {
+            _id: 2,
+            username: 'janeSmith',
+            avatar: image,
+        },
+        title: 'Sustainable Architecture',
+        description: 'Designing buildings with eco-friendly practices for a greener future.',
+        picture: image,
+        altPicture: 'Sustainable architecture image',
+        category: 'Architecture',
+    },
+    {
+        _id: 3,
+        _createdAt: new Date(),
+        vues: 35,
+        author: {
+            _id: 3,
+            username: 'alexGreen',
+            avatar: image,
+        },
+        title: 'Health & Wellness Trends',
+        description: 'An in-depth look at modern health practices and lifestyle improvements.',
+        picture: image,
+        altPicture: 'Health and wellness image',
+        category: 'Health',
+    },
+    {
+        _id: 4,
+        _createdAt: new Date(),
+        vues: 19,
+        author: {
+            _id: 4,
+            username: 'samTaylor',
+            avatar: image,
+        },
+        title: 'Breaking Down Web 3.0',
+        description: 'Understanding the decentralized internet and its impact on data privacy.',
+        picture: image,
+        altPicture: 'Web 3.0 concept image',
+        category: 'Technology',
+    },
+    {
+        _id: 5,
+        _createdAt: new Date(),
+        vues: 54,
+        author: {
+            _id: 5,
+            username: 'emilyBrown',
+            avatar: image,
+        },
+        title: 'Future of Electric Vehicles',
+        description: 'Exploring the evolution and future of electric transportation.',
+        picture: image,
+        altPicture: 'Electric vehicle image',
+        category: 'Automotive',
+    },
+    {
+        _id: 6,
+        _createdAt: new Date(),
+        vues: 62,
+        author: {
+            _id: 6,
+            username: 'willJohnson',
+            avatar: image,
+        },
+        title: 'The Art of Minimalism',
+        description: 'How minimalist living can bring clarity and focus in daily life.',
+        picture: image,
+        altPicture: 'Minimalist lifestyle image',
+        category: 'Lifestyle',
+    },
+];
+
+export default fakeDataArray;
