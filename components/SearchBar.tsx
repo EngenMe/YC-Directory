@@ -1,12 +1,13 @@
-import { Input } from '@/components/ui/input';
 import { Button } from './ui/button';
+import Form from 'next/form';
+import { Input } from './ui/input';
 
 const SearchBar = () => {
     return (
-        <div className="flex w-full max-w-sm items-center space-x-2">
-            <Input placeholder="Search Startup" />
-            <Button type="submit">Search</Button>
-        </div>
+        <Form action="/" scroll={false} className="flex w-full max-w-sm items-center space-x-2">
+            <Input name="query" defaultValue="" placeholder="Search Startups" className="search-input" />
+            <Button type="submit">Submit</Button>
+        </Form>
     );
 };
 export default SearchBar;
