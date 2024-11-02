@@ -1,3 +1,11 @@
+import Hero from '@/components/Hero';
+import StartupList from '@/components/StartupList';
+
 export default function Home() {
-    return <h1>Hello World!</h1>;
+    return (
+        <>
+            <Hero />
+            <StartupList />
+        </>
+    );
 }
