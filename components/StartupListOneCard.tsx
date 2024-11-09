@@ -3,44 +3,31 @@ import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
 import { Eye } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
+import startupType from '@/types/startup.type';
 
 interface Props {
-    data: {
-        _id: number;
-        _createdAt: Date;
-        vues: number;
-        author: {
-            _id: number;
-            username: string;
-            avatar: StaticImageData;
-        };
-        title: string;
-        description: string;
-        picture: StaticImageData;
-        altPicture: string;
-        category: string;
-    };
+    data: startupType;
 }
 
 const StartupListOneCard = ({ data }: Props) => {
-    const { _id, _createdAt, vues, author, title, description, picture, altPicture, category } = data;
+    const { _id, _createdAt, views, author, title, description, image, category } = data;
 
     return (
-        <Card className="hover:scale-105 transition-transform duration-300 md:mx-5 mt-10">
+        <Card className="hover:scale-105 transition-transform duration-300 md:mx-5 mt-10 shadow-xl">
             <CardHeader>
                 <div className="flex justify-between">
                     <div className="bg-accent inline-block rounded-3xl px-4">{formatDate(_createdAt.toString())}</div>
                     <div className="flex gap-2">
                         <Eye />
-                        {vues}
+                        {views}
                     </div>
                 </div>
                 <CardTitle className="py-4 flex justify-between">
                     <div>
                         <div className="text-sm font-normal hover:text-primary/80">
-                            <Link href={`/user/${author._id}`}>{author.username}</Link>
+                            <Link href={`/user/${author._id}`}>{author.name}</Link>
                         </div>
                         <div className="py-2 hover:text-primary/80">
                             <Link href={`/startup/${_id}`}>{title}</Link>
@@ -48,16 +35,16 @@ const StartupListOneCard = ({ data }: Props) => {
                     </div>
                     <Link href={`/user/${author._id}`} className="hover:scale-110 transition-transform duration-300">
                         <Avatar>
-                            <AvatarImage src={author.avatar.src} />
+                            <AvatarImage src={author.image} />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                     </Link>
                 </CardTitle>
-                <CardDescription>{description}</CardDescription>
+                <CardDescription className="line-clamp-2">{description}</CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center items-center py-2">
-                <Link href={`/user/${author._id}`} className="hover:scale-110 transition-transform duration-300">
-                    <Image width="32" height="32" src={picture} alt={altPicture} />
+                <Link href={`/user/${author._id}`} className="hover:scale-105 transition-transform duration-300">
+                    <Image layout="responsive" width={1} height={32} src={image} alt={title} className="rounded-md" />
                 </Link>
             </CardContent>
             <CardFooter className="py-4 flex justify-between">
